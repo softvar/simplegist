@@ -121,7 +121,6 @@ class Do:
 			'%s'%BASE_URL+'/gists/%s/star' % self.gist_id,
 			headers=self.gist.header
 			)
-		print r.status_code
 		if (r.status_code == 204):
 			response = {
 				'starred': 'True',
