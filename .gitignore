@@ -1,0 +1,12 @@
+# setup.py output
+build/
+dist/
+gists.egg-info/
+
+# OS Files
+.DS_Store
+.DS_Store?
+*.pyc
+
+#pypi settings file
+.pyirc
