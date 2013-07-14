@@ -28,9 +28,9 @@ Example Usage
 
 .. code-block:: python
 
-    from gist import Gist
+    from simplegist import SimpleGist
 
-    GHgist = Gist(username='USERNAME',api_token='API_TOKEN') 
+    GHgist = Simplegist(username='USERNAME',api_token='API_TOKEN') 
     # or provide USERNAME and API_TOKEN in config.py file, so just, GHgist = Gist()
 
     # creating gist and returning url, script, clone link
