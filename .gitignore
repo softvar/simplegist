@@ -1,7 +1,8 @@
 # setup.py output
 build/
 dist/
-gists.egg-info/
+simplegist.egg-info/
+*.egg-info/
 
 # OS Files
 .DS_Store
