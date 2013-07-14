@@ -11,7 +11,6 @@ class Mygist:
 		self.gist = gist
 		if 'user' in args:
 			self.user = args['user']
-			print self.user
 		else:
 			self.user = self.gist.username
 	

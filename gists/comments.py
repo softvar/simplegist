@@ -36,7 +36,7 @@ class Comments:
 	def listall(self, **args):
 		if 'user' in args:
 			self.user = args['user']
-			print self.user
+
 		else:
 			self.user = self.gist.username
 
@@ -50,7 +50,7 @@ class Comments:
 			raise Exception('Either provide authenticated user\'s Unambigious Gistname or any unique Gistid')
 
 		if self.gist_id:
-			file_name = []
+			allcomments = []
 			r = requests.get(
 				'%s'%BASE_URL+'/gists/%s/comments' % self.gist_id,
 				headers=self.gist.header
@@ -59,8 +59,8 @@ class Comments:
 			limit = len(r.json())
 			if (r.status_code == 200 ):
 				for g,no in zip(r_text, range(0,limit)):
-						file_name.append(r.json()[no]['body'])
-				return r.json()
+						allcomments.append(r.json()[no]['body'])
+				return allcomments
 
 		raise Exception('Gistname not found')
 
@@ -71,7 +71,7 @@ class Comments:
 			raise Exception('Comment Body can\'t be empty')
 		if 'user' in args:
 			self.user = args['user']
-			print self.user
+
 		else:
 			self.user = self.gist.username
 
@@ -190,7 +190,7 @@ class Comments:
 			raise Exception('Comment Body can\'t be empty')
 		if 'user' in args:
 			self.user = args['user']
-			print self.user
+
 		else:
 			self.user = self.gist.username
 
