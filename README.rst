@@ -51,4 +51,6 @@ Patches and suggestions are welcomed
 ------------------------------------
 
 .. code-block:: bash
-   $ git clone 
+
+   $ git clone https://github.com/softvar/GistApi-Wrapper-python.git
+   $ cd GistApi-Wrapper-python
