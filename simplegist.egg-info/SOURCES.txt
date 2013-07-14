@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+simplegist/__init__.py
+simplegist/comments.py
+simplegist/config.py
+simplegist/do.py
+simplegist/gist.py
+simplegist/mygist.py
+simplegist.egg-info/PKG-INFO
+simplegist.egg-info/SOURCES.txt
+simplegist.egg-info/dependency_links.txt
+simplegist.egg-info/requires.txt
+simplegist.egg-info/top_level.txt

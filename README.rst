@@ -16,7 +16,7 @@ Installation
 -------------
 .. code-block:: bash
 
-    $ pip install gists
+    $ pip install simplegist
 
 Generating Github API Access Token
 ----------------------------------
