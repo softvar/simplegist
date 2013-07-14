@@ -60,6 +60,7 @@ class Comments:
 			if (r.status_code == 200 ):
 				for g,no in zip(r_text, range(0,limit)):
 						allcomments.append(r.json()[no]['body'])
+				
 				return allcomments
 
 		raise Exception('Gistname not found')

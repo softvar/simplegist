@@ -162,6 +162,10 @@ class Mygist:
 		raise Exception('No such gist found')
 
 	def delete(self, **args):
+		'''
+		Delete a gist by gistname/gistID
+		'''
+		
 		if 'name' in args:
 			self.gist_name = args['name']
 			self.gist_id = self.getMyID(self.gist_name)

@@ -10,12 +10,36 @@ class Do:
 	def __init__(self, gist):
 		self.gist = gist
 
+	def getMyID(self,gist_name):
+		'''
+		Getting gistID of a gist in order to make the workflow 
+		easy and uninterrupted.
+		'''
+		r = requests.get(
+			'%s'%BASE_URL+'/users/%s/gists' % self.gist.username,
+			headers=self.gist.header
+			)
+		if (r.status_code == 200):
+			r_text = json.loads(r.text)
+			limit = len(r.json())
+
+			for g,no in zip(r_text, range(0,limit)):
+				for ka,va in r.json()[no]['files'].iteritems():
+					if str(va['filename']) == str(gist_name):
+						return r.json()[no]['id']
+		return 0
+
 	def star(self, **args):
-		
-		if 'id' in args:
+		'''
+		star any gist by providing gistID or gistname(for authenticated user)
+		'''
+		if 'name' in args:
+			self.gist_name = args['name']
+			self.gist_id = self.getMyID(self.gist_name)
+		elif 'id' in args:
 			self.gist_id = args['id']
 		else:
-			raise Exception('Provide GistID to be starred')
+			raise Exception('Either provide authenticated user\'s Unambigious Gistname or any unique Gistid to be starred')
 
 		r = requests.put(
 			'%s'%BASE_URL+'/gists/%s/star' % self.gist_id,
@@ -30,11 +54,16 @@ class Do:
 		raise Exception('Gist can\'t be starred')
 
 	def unstar(self, **args):
-		
-		if 'id' in args:
+		'''
+		unstar any gist by providing gistID or gistname(for authenticated user)
+		'''
+		if 'name' in args:
+			self.gist_name = args['name']
+			self.gist_id = self.getMyID(self.gist_name)
+		elif 'id' in args:
 			self.gist_id = args['id']
 		else:
-			raise Exception('Provide GistID to be unstarred')
+			raise Exception('Either provide authenticated user\'s Unambigious Gistname or any unique Gistid to be unstarred')
 
 		r = requests.delete(
 			'%s'%BASE_URL+'/gists/%s/star' % self.gist_id,
@@ -49,11 +78,16 @@ class Do:
 		raise Exception('Gist can\'t be unstarred')
 
 	def fork(self, **args):
-
-		if 'id' in args:
+		'''
+		fork any gist by providing gistID or gistname(for authenticated user)
+		'''
+		if 'name' in args:
+			self.gist_name = args['name']
+			self.gist_id = self.getMyID(self.gist_name)
+		elif 'id' in args:
 			self.gist_id = args['id']
 		else:
-			raise Exception('Provide GistID to be forked')
+			raise Exception('Either provide authenticated user\'s Unambigious Gistname or any unique Gistid to be forked')
 
 		r = requests.post(
 			'%s'%BASE_URL+'/gists/%s/forks' % self.gist_id,
@@ -71,11 +105,17 @@ class Do:
 		raise Exception('Gist can\'t be forked')
 
 	def checkifstar(self, **args):
+		'''
+		Check a gist if starred by providing gistID or gistname(for authenticated user)
+		'''
 
-		if 'id' in args:
+		if 'name' in args:
+			self.gist_name = args['name']
+			self.gist_id = self.getMyID(self.gist_name)
+		elif 'id' in args:
 			self.gist_id = args['id']
 		else:
-			raise Exception('Provide GistID to be forked')
+			raise Exception('Either provide authenticated user\'s Unambigious Gistname or any unique Gistid to be checked for star')
 
 		r = requests.get(
 			'%s'%BASE_URL+'/gists/%s/star' % self.gist_id,

@@ -103,4 +103,3 @@ class Gist:
 			return response
 		raise Exception('Gist not created.')
 
-
