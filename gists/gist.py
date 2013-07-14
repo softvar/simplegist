@@ -104,38 +104,3 @@ class Gist:
 		raise Exception('Gist not created.')
 
 
-g = Gist()
-#a = g.create(content='testing123')
-#print a
-#g.create(description='hello', public=1, name='test', content='test')
-print g.profile().listall()
-#print g.profile().list(13)
-#print g.profile().content(name='bootstrap-min.css')
-#print g.profile().content(id='5992283')
-#print g.profile().starred(limit=1)
-#print g.profile().starred()
-#print g.profile().edit(description='bootstrap',name='bootstrap-min.css',content='header{color:white}')
-#print g.profile().delete(id=a['id'])
-
-#print g.do().star(id='5948959') #name='bootstrap-min.css' if authenticated
-
-#print g.do().unstar(id='5948962')  
-
-#print g.do().fork(id='3444905')
-
-#print g.do().checkifstar(id='5948962')
-#print g.search('geojeff').list(2)
-#print g.profile().list(1)
-
-#print g.search('geojeff').content(name='bt.py')
-
-#print g.comments().listall(user='geojeff',name='bt.py')  #test wrong cases
-#print g.comments().listall(name='bootstrap-min.css')
-
-#print g.comments().create(id='5948962', body='hello')
-#print g.comments().create(user='caspyin',name='curl.md', body='very helpful')
-
-#print g.comments().delete(name='bootstrap-min.css', commentid='862454')
-#print g.comments().get(name='bootstrap-min.css', commentid='862438')
-
-#print g.comments().edit(name='bootstrap-min.css', commentid='862438',body='heya! world')
