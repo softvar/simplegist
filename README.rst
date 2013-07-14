@@ -18,6 +18,11 @@ Installation
 
     $ pip install gists
 
+Generating Github API Access Token
+----------------------------------
+Go to Github's Account settings > Applications
+``Create a new token`` and use it for making API requests instead of password
+
 Example Usage
 -------------
 
@@ -35,7 +40,7 @@ Example Usage
     GHgist.profile().listall()
 
     # Lists only the names of recent two gists of user 'softvar' 
-    GHgist.search('geojeff').list(2)
+    GHgist.search('softvar').list(2)
     
     # Lists all the comments on gist named 'bootstrap-min.css' of user 'softvar'
     GHgist.comments().listall(user='softvar',name='bootstrap-min.css')
