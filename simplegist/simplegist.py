@@ -9,7 +9,7 @@ from comments import Comments
 
 BASE_URL = 'https://api.github.com'
 
-class Gist:
+class Simplegist:
 	"""
 	Gist Base Class
 
