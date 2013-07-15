@@ -8,6 +8,11 @@ simplegist.egg-info/
 .DS_Store
 .DS_Store?
 *.pyc
+*~
+
+docs/_build
+docs/_static
+docs/_templates
 
 #pypi settings file
 .pyirc
