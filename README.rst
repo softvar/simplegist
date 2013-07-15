@@ -50,7 +50,7 @@ Example Usage
 Full Usage and Documentation
 ----------------------------
 
-Visit here `READTHEDOCS <https://simplegist.readthedocs.org/en/latest/>`
+Visit here `READTHEDOCS <https://simplegist.readthedocs.org/en/latest/>`_
 
 Patches and suggestions are welcomed
 ------------------------------------
