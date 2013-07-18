@@ -9,28 +9,38 @@ Creating a gist
 
 	Input
 
-		name
+		``name``
 		  *Optional* argument (*default auto-gistID*)
-		description
+		``description``
 		  *Optional* argument (*default empty*)
-		public
-		  *Optional* argument (*default true*)
-		content
+		``public``
+		  *Optional* argument (*default public*)
+		``content``
 		  *Required* argument
 
 
-Creating a Gist with all arguments
-----------------------------------
+Creating a Gist with all arguments ``create(params)``
+-----------------------------------------------------
+
+Create a new Gist simply by providing the parameters as specified above.
 
 .. code-block:: python
 
 	# create a secret gist(public=0)
-	GHgist.create(name='Test.py', description='just testing it', public=0, content='print "Yay! Test Passed" ')
+	GHgist.create(name='_GISTNAME', description='_ANY_DESCRIPTION', public=0, content='_CONTENT_GOES_HERE')
 
-Creating a Gist with *required* argument only
----------------------------------------------
+Creating a Gist with *required* argument only ``create(params)``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 	
 	# create a gist with defaut name(gist:gistID, provided by github)
-	GHgist.create(content='print "Yay! Test Passed" ') 
+	GHgist.create(content='_CONTENT_GOES_HERE')
+
+Other docs
+==========
+
+* :doc:`index`
+* :doc:`manage` 
+* :doc:`searching`
+* :doc:`comments`

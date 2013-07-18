@@ -34,16 +34,16 @@ Example Usage
     # or provide USERNAME and API_TOKEN in config.py file, so just, GHgist = Gist()
 
     # creating gist and returning url, script, clone link
-    GHgist.create(name='Test.py', description='just testing it', public=1, content='print "Yay! Test Passed" ') 
+    GHgist.create(name='_GISTNAME', description='_ANY_DESCRIPTION', public=1, content='_CONTENT_GOES_HERE') 
 
     # Lists all the names of authenticated user's gists
     GHgist.profile().listall()
 
-    # Lists only the names of recent two gists of user 'softvar' 
-    GHgist.search('softvar').list(2)
+    # Lists only the names of recent two gists of user '_USERNAME' 
+    GHgist.search('_USERNAME').list(2)
     
-    # Lists all the comments on gist named 'bootstrap-min.css' of user 'softvar'
-    GHgist.comments().listall(user='softvar',name='bootstrap-min.css')
+    # Lists all the comments on gist named '_GISTNAME' of user 'USERNAME'
+    GHgist.comments().listall(user='_USERNAME',name='_GISTNAME')
 
     # ...and many more...
 

@@ -230,4 +230,4 @@ class Comments:
 				}
 			
 
-		raise Exception('Comment not created')
+		raise Exception('Comment not edited')

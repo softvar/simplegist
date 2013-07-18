@@ -8,6 +8,7 @@ from do import Do
 from comments import Comments
 
 BASE_URL = 'https://api.github.com'
+Link_URL = 'https://gist.github.com'
 
 class Simplegist:
 	"""
@@ -95,7 +96,9 @@ class Simplegist:
 		)
 		if (r.status_code == 201):	
 			response = {
-			'url': '%s/%s/%s' %(BASE_URL,self.username,r.json()['id']),
+			'Gist-Link': '%s/%s/%s' %(Link_URL,self.username,r.json()['id']),
+			'Clone-Link': '%s/%s.git' %(Link_URL,r.json()['id']),
+			'Embed-Script': '<script src="%s/%s/%s.js"</script>' %(Link_URL,self.username,r.json()['id']),
 			'id': r.json()['id'],
 			'created_at': r.json()['created_at'],
 

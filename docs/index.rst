@@ -16,25 +16,22 @@ Features
 * Search GitHub user's gist - fork, star and unstar them
 * List comments of any gist, make/edit a comment on a gist, delete a comment 
 
-Contents:
----------
-
-.. toctree::
-   :maxdepth: 2
-
-   create
-   manage
-   search
-   comments
-
 Installation
--------------
+------------
 .. code-block:: bash
 
     $ pip install simplegist
 
+Or download it from `here <https://github.com/softvar/GistApi-Wrapper-python/tarball/0.3.2>`_ and then,
+
+.. code-block:: bash
+
+    $ cd /to/this/directory/
+    $ python install setup.py
+
 Generating Github API Access Token
 ----------------------------------
+
 Go to Github's Account settings > Applications
 ``Create a new token`` and use it for making API requests instead of password.
 
@@ -51,32 +48,45 @@ Creating an Instance
 
 Example Usage
 -------------
+Below is an example to getting started with using GistAPI and its useful functionalities.
+
 
 .. code-block:: python
 
     from simplegist import SimpleGist
 
+    # provide USERNAME and API_TOKEN in config.py file, so just, GHgist = Gist(), OR,
     GHgist = Simplegist(username='USERNAME',api_token='API_TOKEN') 
-    # or provide USERNAME and API_TOKEN in config.py file, so just, GHgist = Gist()
 
     # creating gist and returning url, script, clone link
-    GHgist.create(name='Test.py', description='just testing it', public=1, content='print "Yay! Test Passed" ') 
+    GHgist.create(name='_GISTNAME', description='_ANY_DESCRIPTION', public=1, content='_CONTENT_GOES_HERE') 
 
     # Lists all the names of authenticated user's gists
     GHgist.profile().listall()
 
-    # Lists only the names of recent two gists of user 'softvar' 
-    GHgist.search('softvar').list(2)
+    # Lists only the names of recent two gists of user '_USERNAME' 
+    GHgist.search('_USERNAME').list(2)
     
-    # Lists all the comments on gist named 'bootstrap-min.css' of user 'softvar'
-    GHgist.comments().listall(user='softvar',name='bootstrap-min.css')
+    # Lists all the comments on gist named '_GISTNAME' of user '_USERNAME'
+    GHgist.comments().listall(user='_USERNAME',name='_GISTNAME')
 
     # ...and many more...
 
-Indices and tables
-==================
+Contents:
+---------
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. toctree::
+   :maxdepth: 2
 
+   create
+   manage
+   searching
+   comments
+
+Other docs
+==========
+
+* :doc:`create`
+* :doc:`manage`
+* :doc:`searching`
+* :doc:`comments`

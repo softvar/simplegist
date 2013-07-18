@@ -1,15 +1,15 @@
 Managing authenticated user's gists
-==================================
+===================================
 
 .. warning::
 
 	user must be authenticated 
 
 
-Listing all the Gists
----------------------
+Listing all the Gists ``profile().listall()``
+---------------------------------------------
 
-Fetch all the GistsNames ``listall()``.
+Fetch all the GistsNames.
 
 .. note::
 
@@ -19,14 +19,14 @@ Fetch all the GistsNames ``listall()``.
 
 	GHgist.profile().listall()
 
-Listing the required Gists
---------------------------
+Listing the required number of Gists ``profile().list(integar)``
+----------------------------------------------------------------
 
 Fetch only the limited number of Gists ``list(4)``.
 
 .. note::
 
-	``Input``
+	Input
 
 		integar
 			``integar`` is **required** as an argument which will limit the number of Gists to be listed.
@@ -34,24 +34,48 @@ Fetch only the limited number of Gists ``list(4)``.
 .. code-block:: python
 
 	GHgist.profile().list(4)
-	
-Fetching the contents of a Gist
--------------------------------
 
-Fetch the contents of a Gist by name (GistName) ``content(name='Gistname')``.
+Get GistName ``profile().getgist(id='_GISTID')``
+------------------------------------------------
 
-.. code-block:: python
-
-	GHgist.profile().content(name='GISTNAME')
-	
-Fetch by id (GistID)
+Fetch Gist's name by provoding it's ID i.e. GistID.
 
 .. code-block:: python
 
-	GHgist.profile().content(id='GistID')
+	GHgist.profile().getgist(id='_GISTID')
 
-Listing the starred Gists
--------------------------
+Fetch Gist-Link, Clone-Link and Embed-Script-Link of your gist ``profile().links(id/name)``
+-------------------------------------------------------------------------------------------
+
+.. note::
+
+	Input
+
+		``name/id`` - id should be correct so check response before using 				 	  it further.
+			*Required*
+
+.. code-block:: python
+
+	GHgist.profile('YOURUSERNAME').links(id='_GISTID')
+	GHgist.profile('YOURUSERNAME').links(name='_GISTNAME')
+	
+Fetching the contents of a Gist ``profile().content(params)``
+-------------------------------------------------------------
+
+Fetch the contents of a Gist by name (GISTNAME) ``content(name='_GISTNAME')``.
+
+.. code-block:: python
+
+	GHgist.profile().content(name='_GISTNAME')
+	
+Fetch by id (GISTID)
+
+.. code-block:: python
+
+	GHgist.profile().content(id='_GISTID')
+
+Listing the starred Gists ``profile().starred()``
+-------------------------------------------------
 
 List all your starred gists ``starred()``
 
@@ -63,62 +87,77 @@ List only the required number of starred Gists ``starred(limit=2)``.
 
 .. note::
 
-	**limit**
+	``limit``
 		*Required*
 
 .. code-block:: python
 
 	GHgist.profile().starred(limit=2)
 
-Editing a Gist
---------------
+Get GistName ``profile().getgist(id='_GISTID')``
+------------------------------------------------
+
+Fetch any of your Gist's name by provoding it's ID i.e. GISTID.
+
+.. code-block:: python
+
+	GHgist.profile().getgist(id='_GistID')
+
+Editing a Gist ``profile().edit(params)``
+-----------------------------------------
 
 Edit a Gist by providing either GistName or GistID, and content.
 
 .. note::
 
 	Input
-		description
+
+		``description``
 			*Optional*
-		name or id
+		``name/id``
 			*Required*
-		content
+		``content``
 			*Required*
 
 
 .. code-block:: python
 
 	# with all the arguments
-	GHgist.profile().edit(description='NEW UPDATE',name='GISTNAME',content='MY UPDATED GIST ')
+	GHgist.profile().edit(description='_NEW_DESCRIPTION',name='_GISTNAME',content='_UPDATED_CONETNT_GOES_HERE')
 
 	# with required arguments
-	GHgist.profile().edit(id='GistID',content='MYUPDATED GIST ')	
+	GHgist.profile().edit(id='_GISTID',content='_UPDATED_CONTENT_GOES_HERE')	
 
-Getting a GistName using GistID
--------------------------------
+Getting a GistName using GistID ``profile().getMyID(params)``
+-------------------------------------------------------------
 
-Very useful in order to work hasslefree ``getMyID('YOUR_GIST_NAME')``.
+Very useful in order to work hasslefree ``getMyID('_YOUR_GIST_NAME')``.
 
 .. code-block:: python
 
-	GHgist.profile().getMyID('YOUR_GIST_NAME')
+	GHgist.profile().getMyID('_YOUR_GIST_NAME')
 
 
 
-Deleting a Gist
----------------
+Deleting a Gist ``profile().delete(params)``
+--------------------------------------------
 
-Delete a gist by providing either GistName or GistID ``delete(id='GistID')``.
+Delete a gist by providing either GistName or GistID ``delete(id='_GISTID')``.
 
 .. note::
 
 	Input
-		name or id
+		``name/id``
 			*Required*
 
 .. code-block:: python
 
-	Ghgist.profile().delete(id=':GistID')
+	GHgist.profile().delete(id='_GISTID')
 
+Other docs
+==========
 
-	 
+* :doc:`index`
+* :doc:`create`
+* :doc:`searching`
+* :doc:`comments`

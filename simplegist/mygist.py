@@ -1,10 +1,8 @@
-BASE_URL = 'https://api.github.com'
-GIST_URL = 'https://gist.github.com'
-
 import json
 import requests
 
-
+BASE_URL = 'https://api.github.com'
+Link_URL = 'https://gist.github.com'
 
 class Mygist:
 	def __init__(self, gist, **args):
@@ -24,7 +22,7 @@ class Mygist:
 		'''
 		file_name = []
 		r = requests.get(
-			'%s'%BASE_URL+'/users/%s/gists' % self.user,
+			'%s/users/%s/gists' % (BASE_URL, self.user),
 			headers=self.gist.header
 			)
 		r_text = json.loads(r.text)
@@ -47,7 +45,7 @@ class Mygist:
 		'''
 		file_name = []
 		r = requests.get(
-			'%s'%BASE_URL+'/users/%s/gists' % self.user,
+			'%s/users/%s/gists' %(BASE_URL,self.user),
 			headers=self.gist.header
 			)
 		if (r.status_code == 200 ):
@@ -103,7 +101,6 @@ class Mygist:
 				)
 			if (r.status_code == 200):
 				r_text = json.loads(r.text)
-				#gistNAMEG
 				if self.gist_name!='':
 					content =  r.json()['files'][self.gist_name]['content']
 				else:
@@ -113,46 +110,84 @@ class Mygist:
 
 		raise Exception('No such gist found')
 
+	def getgist(self, **args):
+
+		if 'id' in args:
+			self.gist_id = args['id']
+		else:
+			raise Exception('Gist ID must be provided')
+
+		if self.gist_id:
+			r = requests.get(
+				'%s/gists/%s'%(BASE_URL,self.gist_id),
+				headers=self.gist.header,
+				)
+			if (r.status_code == 200):
+				
+				for key,value in r.json()['files'].iteritems():
+						content = value['filename']
+				return content
+
+		raise Exception('No such gist found')
+
+
 	def edit(self, **args):
 		'''
 		Doesn't require manual fetching of gistID of a gist
 		passing gistName will return edit the gist
 		'''
+		self.gist_name = ''
 		if 'description' in args:
 			self.description = args['description']
 		else:
 			self.description = ''
 
-		if 'name' in args:
+
+		if 'name' in args and 'id' in args:
 			self.gist_name = args['name']
+			self.gist_id = args['id']
+		elif 'name' in args:
+			self.gist_name = args['name']
+			self.gist_id = self.getMyID(self.gist_name)
+		elif 'id' in args:
+			self.gist_id = args['id']
 		else:
-			raise Exception('Gist name must be provided')
+			raise Exception('Gist Name/ID must be provided')
 
 		if 'content' in args:
 			self.content = args['content']
 		else:
 			raise Exception('Gist content can\'t be empty')
 
-		data = {"description": self.description,
+		if (self.gist_name == ''):
+			self.gist_name = self.getgist(id=self.gist_id)
+			data = {"description": self.description,
   				"files": {
     				self.gist_name: {
       				"content": self.content
     				}
   				}
   		}
-  		url = 'gists'
+		else:
+			data = {"description": self.description,
+  				"files": {
+    				self.gist_name: {
+      				"content": self.content
+    				}
+  				}
+  			}
 
-		self.gist_id = self.getMyID(self.gist_name)
+	
 		if self.gist_id:
 			r = requests.patch(
-				'%s/%s/%s'%(BASE_URL,url,self.gist_id),
+				'%s/gists/%s'%(BASE_URL,self.gist_id),
 				headers=self.gist.header,
 				data=json.dumps(data),
 				)
 			if (r.status_code == 200):
 				r_text = json.loads(r.text)
 				response = {
-					'updated_content': r.json()['files'][self.gist_name]['content'],
+					'updated_content': self.content,
 					'created_at': r.json()['created_at'],
 					'comments':r.json()['comments']
 				}
@@ -160,6 +195,7 @@ class Mygist:
 				return response
 
 		raise Exception('No such gist found')
+
 
 	def delete(self, **args):
 		'''
@@ -182,7 +218,7 @@ class Mygist:
 				)
 			if (r.status_code == 204):
 				response = {
-					'id': slef.gist_id,
+					'id': self.gist_id,
 				}
 				return response
 
@@ -195,7 +231,7 @@ class Mygist:
 		''' 
 		ids =[]
 		r = requests.get(
-			'%s'%BASE_URL+'/gists/starred',
+			'%s/gists/starred'%BASE_URL,
 			headers=self.gist.header
 			)
 
@@ -210,3 +246,32 @@ class Mygist:
 			return ids
 
 		raise Exception('Username not found')
+
+	def links(self,**args):
+		'''
+		Return Gist URL-Link, Clone-Link and Script-Link to embed
+		'''
+		if 'name' in args:
+			self.gist_name = args['name']
+			self.gist_id = self.getMyID(self.gist_name)
+		elif 'id' in args:
+			self.gist_id = args['id']
+		else:
+			raise Exception('Gist Name/ID must be provided')
+		if self.gist_id:
+			r = requests.get(
+				'%s/gists/%s'%(BASE_URL,self.gist_id),
+				headers=self.gist.header,
+				)
+			if (r.status_code == 200):
+				
+				content = {
+				'Github-User': r.json()['user']['login'],
+				'GistID': r.json()['id'],
+				'Gist-Link': '%s/%s/%s' %(Link_URL,self.gist.username,r.json()['id']),
+				'Clone-Link': '%s/%s.git' %(Link_URL,r.json()['id']),
+				'Embed-Script': '<script src="%s/%s/%s.js"</script>' %(Link_URL,self.gist.username,r.json()['id'])
+				}
+				return content
+
+		raise Exception('No such gist found')
