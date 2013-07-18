@@ -112,7 +112,7 @@ Delete any comment you have made on a Gist by provoding GistName/GistID along wi
 	GHgist.comments().delete(name='bootstrap-min.css', commentid='862454')
 
 Other docs
-==========
+^^^^^^^^^^
 
 * :doc:`index`
 * :doc:`create`

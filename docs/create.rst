@@ -30,7 +30,7 @@ Create a new Gist simply by providing the parameters as specified above.
 	GHgist.create(name='_GISTNAME', description='_ANY_DESCRIPTION', public=0, content='_CONTENT_GOES_HERE')
 
 Creating a Gist with *required* argument only ``create(params)``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------------------------------
 
 .. code-block:: python
 	
@@ -38,7 +38,7 @@ Creating a Gist with *required* argument only ``create(params)``
 	GHgist.create(content='_CONTENT_GOES_HERE')
 
 Other docs
-==========
+^^^^^^^^^^
 
 * :doc:`index`
 * :doc:`manage` 
