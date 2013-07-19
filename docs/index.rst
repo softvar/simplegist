@@ -80,6 +80,7 @@ Contents:
 
    create
    manage
+   actions
    searching
    comments
 
@@ -88,5 +89,6 @@ Other docs
 
 * :doc:`create`
 * :doc:`manage`
+* :doc:`actions`
 * :doc:`searching`
 * :doc:`comments`

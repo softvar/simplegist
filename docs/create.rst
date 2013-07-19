@@ -41,6 +41,7 @@ Other docs
 ^^^^^^^^^^
 
 * :doc:`index`
-* :doc:`manage` 
+* :doc:`manage`
+* :doc:`actions` 
 * :doc:`searching`
 * :doc:`comments`

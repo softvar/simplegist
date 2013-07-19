@@ -159,5 +159,6 @@ Other docs
 
 * :doc:`index`
 * :doc:`create`
+* :doc:`actions`
 * :doc:`searching`
 * :doc:`comments`

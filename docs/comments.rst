@@ -117,4 +117,5 @@ Other docs
 * :doc:`index`
 * :doc:`create`
 * :doc:`manage`
+* :doc:`actions`
 * :doc:`searching`
