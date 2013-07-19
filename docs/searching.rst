@@ -79,7 +79,7 @@ Moreover, this criteria can also be applied in finding 'one\'s' own Gist's GistI
 	GHgist.search('').links(id='_GISTID')
 	GHgist.search('_USERNAME').links(name='_GISTNAME')
 
-Other docs
+Other Docs
 ^^^^^^^^^^
 
 * :doc:`index`

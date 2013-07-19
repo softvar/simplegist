@@ -37,7 +37,7 @@ Creating a Gist with *required* argument only ``create(params)``
 	# create a gist with defaut name(gist:gistID, provided by github)
 	GHgist.create(content='_CONTENT_GOES_HERE')
 
-Other docs
+Other Docs
 ^^^^^^^^^^
 
 * :doc:`index`

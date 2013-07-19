@@ -5,12 +5,19 @@ Actions on gists
 
 	user must be authenticated
 
+Useful Information for below mentioned methods
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Since all the below mentioned methods require GistName/GistID. GistName is provided only when calling methods for your own Gists. Whereas GistID can be provided for all.
+
+**GistID of other users' Gist can be easily extracted without opening browser. Refer to the**
+:doc:`searching` **section** 
+
 Check a Gist for a star ``do().checkifstar(params)``
 ----------------------------------------------------
 
 Check any Gist for a star by providing Gistname(if that Gist belongs to you) or GistID.
 
-**GistID of others' Gist can be easily extracted without opening browser. Refer to the * :doc:`searching` section**
 
 .. note::
 
@@ -34,7 +41,6 @@ Star a Gist ``do().star(params)``
 
 Star any Gist by providing Gistname(if that Gist belongs to you) or GistID.
 
-**GistID of others' Gist can be easily extracted without opening browser. Refer to the * :doc:`searching` section**
 
 .. note::
 
@@ -58,7 +64,6 @@ Unstar a Gist ``do().unstar(params)``
 
 UnStar any Gist by providing Gistname(if that Gist belongs to you) or GistID.
 
-**GistID of others' Gist can be easily extracted without opening browser. Refer to the * :doc:`searching` section**
 
 .. note::
 
@@ -83,7 +88,6 @@ Fork a Gist ``do().fork(params)``
 
 Fork other's Gist by providing GistID.
 
-**GistID of others' Gist can be easily extracted without opening browser. Refer to the * :doc:`searching` section**
 
 .. note::
 
@@ -98,7 +102,7 @@ Fork other's Gist by providing GistID.
 
 	GHgist.do().fork(id='_GISTID')
 
-Other docs
+Other Docs
 ^^^^^^^^^^
 
 * :doc:`index`

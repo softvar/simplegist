@@ -154,7 +154,7 @@ Delete a gist by providing either GistName or GistID ``delete(id='_GISTID')``.
 
 	GHgist.profile().delete(id='_GISTID')
 
-Other docs
+Other Docs
 ^^^^^^^^^^
 
 * :doc:`index`

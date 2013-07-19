@@ -84,8 +84,8 @@ Contents:
    searching
    comments
 
-Other docs
-==========
+Related Docs
+============
 
 * :doc:`create`
 * :doc:`manage`
