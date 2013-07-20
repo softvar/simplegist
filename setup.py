@@ -17,7 +17,7 @@ setup(
     long_description=open('README.rst').read(),
     author = 'Varun Malhotra',
     author_email = 'varun2902@gmail.com',
-    url = 'https://github.com/softvar/gist', 
+    url = 'https://github.com/softvar/GistApi-Wrapper-python', 
     download_url = 'https://github.com/softvar/GistApi-Wrapper-python/tarball/0.3.2',
     keywords = ['gist', 'github', 'API'],
     license = 'MIT', 

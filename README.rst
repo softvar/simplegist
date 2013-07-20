@@ -52,7 +52,7 @@ Example Usage
 Full Usage and Documentation
 ----------------------------
 
-Visit here `READTHEDOCS <https://simplegist.readthedocs.org/en/latest/>`_
+Visit here `READTHEDOCS <https://simplegist.readthedocs.org/en/latest/>`_ or `PYTHONHOSTED <http://pythonhosted.org/simplegist/>`_
 
 Patches and suggestions are welcomed
 ------------------------------------
