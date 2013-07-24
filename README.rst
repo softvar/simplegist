@@ -18,7 +18,7 @@ Installation
 
     $ pip install simplegist
 
-Download `here <https://github.com/softvar/GistApi-Wrapper-python/tarball/0.3.2>`_ and run ``python install setup.py`` after changing directory to ``GistApi-Wrapper-python/simplegist``
+Download `here <https://github.com/softvar/GistApi-Wrapper-python/tarball/0.3.2>`_ and run ``python setup.py install`` after changing directory to ``GistApi-Wrapper-python/simplegist``
 
 Generating Github API Access Token
 ----------------------------------
