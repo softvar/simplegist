@@ -1,7 +1,7 @@
-GistApi-Wrapper-python
-======================
+Github-Gist Api - python wrapper
+================================
 
-Python wrapper for ``GitHub's Gist``.
+Python wrapper for ``GitHub's Gist API``.
 
 Features
 --------
