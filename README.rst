@@ -3,6 +3,15 @@ Github-Gist Api - python wrapper
 
 Python wrapper for ``GitHub's Gist API``.
 
+| Latest Version | Downloads |
+
+.. | Latest Version | image:: https://pypip.in/v/simplegist/badge.png
+    :target: https://pypi.python.org/pypi/simplegist/
+
+.. | Downloads | image:: https://pypip.in/d/simplegist/badge.png
+    :target: https://pypi.python.org/pypi//simplegist/
+
+
 Features
 --------
 
