@@ -3,7 +3,7 @@ Managing authenticated user's gists
 
 .. warning::
 
-	user must be authenticated 
+	user must be authenticated
 
 
 Listing all the Gists ``profile().listall()``
@@ -19,7 +19,7 @@ Fetch all the GistsNames.
 
 	GHgist.profile().listall()
 
-Listing the required number of Gists ``profile().list(integar)``
+Listing the required number of Gists ``profile().list(integer)``
 ----------------------------------------------------------------
 
 Fetch only the limited number of Gists ``list(4)``.
@@ -28,8 +28,8 @@ Fetch only the limited number of Gists ``list(4)``.
 
 	Input
 
-		integar
-			``integar`` is **required** as an argument which will limit the number of Gists to be listed.
+		integer
+			``integer`` is **required** as an argument which will limit the number of Gists to be listed.
 
 .. code-block:: python
 
@@ -58,7 +58,7 @@ Fetch Gist-Link, Clone-Link and Embed-Script-Link of your gist ``profile().links
 
 	GHgist.profile('YOURUSERNAME').links(id='_GISTID')
 	GHgist.profile('YOURUSERNAME').links(name='_GISTNAME')
-	
+
 Fetching the contents of a Gist ``profile().content(params)``
 -------------------------------------------------------------
 
@@ -67,7 +67,7 @@ Fetch the contents of a Gist by name (GISTNAME) ``content(name='_GISTNAME')``.
 .. code-block:: python
 
 	GHgist.profile().content(name='_GISTNAME')
-	
+
 Fetch by id (GISTID)
 
 .. code-block:: python
@@ -126,7 +126,7 @@ Edit a Gist by providing either GistName or GistID, and content.
 	GHgist.profile().edit(description='_NEW_DESCRIPTION',name='_GISTNAME',content='_UPDATED_CONETNT_GOES_HERE')
 
 	# with required arguments
-	GHgist.profile().edit(id='_GISTID',content='_UPDATED_CONTENT_GOES_HERE')	
+	GHgist.profile().edit(id='_GISTID',content='_UPDATED_CONTENT_GOES_HERE')
 
 Getting a GistName using GistID ``profile().getMyID(params)``
 -------------------------------------------------------------

@@ -14,7 +14,7 @@ Features
 * Checkout one's gists - Name(s), Description and Content
 * Edit and Delete a gist
 * Search GitHub user's gist - fork, star and unstar them
-* List comments of any gist, make/edit a comment on a gist, delete a comment 
+* List comments of any gist, make/edit a comment on a gist, delete a comment
 
 Installation
 ------------
@@ -22,7 +22,7 @@ Installation
 
     $ pip install simplegist
 
-Or download it from `here <https://github.com/softvar/GistApi-Wrapper-python/tarball/0.3.2>`_ and then,
+Or download it from `here <https://github.com/softvar/GistApi-Wrapper-python/tarball/1.0.0>`_ and then,
 
 .. code-block:: bash
 
@@ -44,7 +44,7 @@ Creating an Instance
 	GHgist = Simplegist(username='USERNAME',api_token='API_TOKEN')
 
 	# else
-	GHgist = Simplegist() 
+	GHgist = Simplegist()
 
 Example Usage
 -------------
@@ -56,17 +56,17 @@ Below is an example to getting started with using GistAPI and its useful functio
     from simplegist import SimpleGist
 
     # provide USERNAME and API_TOKEN in config.py file, so just, GHgist = Gist(), OR,
-    GHgist = Simplegist(username='USERNAME',api_token='API_TOKEN') 
+    GHgist = Simplegist(username='USERNAME',api_token='API_TOKEN')
 
     # creating gist and returning url, script, clone link
-    GHgist.create(name='_GISTNAME', description='_ANY_DESCRIPTION', public=1, content='_CONTENT_GOES_HERE') 
+    GHgist.create(name='_GISTNAME', description='_ANY_DESCRIPTION', public=1, content='_CONTENT_GOES_HERE')
 
     # Lists all the names of authenticated user's gists
     GHgist.profile().listall()
 
-    # Lists only the names of recent two gists of user '_USERNAME' 
+    # Lists only the names of recent two gists of user '_USERNAME'
     GHgist.search('_USERNAME').list(2)
-    
+
     # Lists all the comments on gist named '_GISTNAME' of user '_USERNAME'
     GHgist.comments().listall(user='_USERNAME',name='_GISTNAME')
 

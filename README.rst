@@ -11,15 +11,22 @@ Python wrapper for ``GitHub's Gist API``.
 .. |Downloads| image:: https://pypip.in/d/simplegist/badge.png
     :target: https://pypi.python.org/pypi//simplegist/
 
+|Latest Version| |Downloads|
+
+.. |Latest Version| image:: https://img.shields.io/pypi/v/simplegist.svg
+    :target: https://pypi.python.org/pypi/simplegist
+
+.. |Downloads| image:: https://img.shields.io/pypi/dm/simplegist.svg
+    :target: https://pypi.python.org/pypi/simplegist
 
 Features
 --------
 
-* Creating gists returning the url, script and clone link for copy-paste purpose
-* Checkout one's gists - Name(s), Description and Content
+* Create Gists and get url, script and clone link on success (can be used for copy-paste purpose too)
+* View one's Gist(s) - name, description and it's content
 * Edit and Delete a gist
-* Search GitHub user's gist - fork, star and unstar them
-* List-all comments of any gist, make/edit a comment on a gist, delete a comment 
+* Search Gist(s) of any user; fork, star and unstar them
+* List all comments on any Gist, put/edit/delete a comment on a Gist
 
 Installation
 -------------
@@ -27,7 +34,7 @@ Installation
 
     $ pip install simplegist
 
-Download `here <https://github.com/softvar/simplegist/tarball/0.3.2>`_ and run ``python setup.py install`` after changing directory to ``/simplegist``
+Download `here <https://github.com/softvar/simplegist/tarball/1.0.0>`_ and run ``python setup.py install`` after changing directory to ``/simplegist``
 
 Generating Github API Access Token
 ----------------------------------
@@ -41,20 +48,20 @@ Example Usage
 
     from simplegist import SimpleGist
 
-    GHgist = Simplegist(username='USERNAME',api_token='API_TOKEN') 
-    # or provide USERNAME and API_TOKEN in config.py file, so just, GHgist = Gist()
+    ghGist = Simplegist(username='USERNAME', api_token='API_TOKEN')
+    # or provide USERNAME and API_TOKEN in config.py file, so just, ghGist = Gist()
 
-    # creating gist and returning url, script, clone link
-    GHgist.create(name='_GISTNAME', description='_ANY_DESCRIPTION', public=1, content='_CONTENT_GOES_HERE') 
+    # creating gist and getting url, script and clone link
+    ghGist.create(name='_GISTNAME', description='_ANY_DESCRIPTION', public=1, content='_CONTENT_GOES_HERE')
 
-    # Lists all the names of authenticated user's gists
-    GHgist.profile().listall()
+    # List down all the names of authenticated user's Gists
+    ghGist.profile().listall()
 
-    # Lists only the names of recent two gists of user '_USERNAME' 
-    GHgist.search('_USERNAME').list(2)
-    
-    # Lists all the comments on gist named '_GISTNAME' of user 'USERNAME'
-    GHgist.comments().listall(user='_USERNAME',name='_GISTNAME')
+    # List down only the names of recent two Gists of user '_USERNAME'
+    ghGist.search('_USERNAME').list(2)
+
+    # List down all the comments on gist named '_GISTNAME' of user 'USERNAME'
+    ghGist.comments().listall(user='_USERNAME', name='_GISTNAME')
 
     # ...and many more...
 
@@ -63,8 +70,8 @@ Full Usage and Documentation
 
 Visit here `READTHEDOCS <https://simplegist.readthedocs.org/en/latest/>`_ or `PYTHONHOSTED <http://pythonhosted.org/simplegist/>`_
 
-Patches and suggestions are welcomed
-------------------------------------
+Patches and suggestions are welcome
+-----------------------------------
 
 .. code-block:: bash
 
