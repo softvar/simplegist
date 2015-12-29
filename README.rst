@@ -5,14 +5,6 @@ Python wrapper for ``GitHub's Gist API``.
 
 |Latest Version| |Downloads|
 
-.. |Latest Version| image:: https://pypip.in/v/simplegist/badge.png
-    :target: https://pypi.python.org/pypi/simplegist/
-
-.. |Downloads| image:: https://pypip.in/d/simplegist/badge.png
-    :target: https://pypi.python.org/pypi//simplegist/
-
-|Latest Version| |Downloads|
-
 .. |Latest Version| image:: https://img.shields.io/pypi/v/simplegist.svg
     :target: https://pypi.python.org/pypi/simplegist
 
