@@ -38,7 +38,7 @@ Example Usage
 
 .. code-block:: python
 
-    from simplegist import SimpleGist
+    from simplegist import Simplegist
 
     ghGist = Simplegist(username='USERNAME', api_token='API_TOKEN')
     # or provide USERNAME and API_TOKEN in config.py file, so just, ghGist = Gist()
