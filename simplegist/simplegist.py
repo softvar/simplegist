@@ -104,5 +104,5 @@ class Simplegist:
 
 			}
 			return response
-		raise Exception('Gist not created.')
+		raise Exception('Gist not created: server response was [%s] %s' % (r.status_code, r.text))
 
