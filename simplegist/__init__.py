@@ -8,5 +8,5 @@ without manually looking for it on GitHub
 from simplegist import *
 
 __author__ = 'Varun Malhotra'
-__version__ = '0.3'
+__version__ = '1.0.1'
 __license__ = 'MIT'

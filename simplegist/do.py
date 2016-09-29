@@ -1,10 +1,6 @@
-BASE_URL = 'https://api.github.com'
-GIST_URL = 'https://gist.github.com'
-
 import json
 import requests
-
-
+from config import BASE_URL, GIST_URL
 
 class Do:
 	def __init__(self, gist):
@@ -12,7 +8,7 @@ class Do:
 
 	def getMyID(self,gist_name):
 		'''
-		Getting gistID of a gist in order to make the workflow 
+		Getting gistID of a gist in order to make the workflow
 		easy and uninterrupted.
 		'''
 		r = requests.get(

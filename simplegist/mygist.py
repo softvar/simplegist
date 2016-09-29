@@ -1,8 +1,6 @@
 import json
 import requests
-
-BASE_URL = 'https://api.github.com'
-Link_URL = 'https://gist.github.com'
+from config import BASE_URL, GIST_URL
 
 class Mygist:
 	def __init__(self, gist, **args):
@@ -11,12 +9,12 @@ class Mygist:
 			self.user = args['user']
 		else:
 			self.user = self.gist.username
-	
+
 	def listall(self):
 		'''
 		will display all the filenames.
 		Result can be stored in an array for easy fetching of gistNames
-		for future purposes. 
+		for future purposes.
 		eg. a = Gist().mygists().listall()
 		    print a[0] #to fetch first gistName
 		'''
@@ -37,9 +35,9 @@ class Mygist:
 
 	def list(self, offset):
 		'''
-		will display only the required no. of filenames but in order.  
+		will display only the required no. of filenames but in order.
 		Result can be stored in an array for easy fetching of gistNames
-		for future purposes. 
+		for future purposes.
 		eg. a = Gist().mygists().listall()
 		    print a[0] #to fetch first gistName
 		'''
@@ -56,11 +54,11 @@ class Mygist:
 				for key,value in r.json()[no]['files'].iteritems():
 					file_name.append(value['filename'])
 			return file_name
-		raise Exception('Username not found')		
+		raise Exception('Username not found')
 
 	def getMyID(self,gist_name):
 		'''
-		Getting gistID of a gist in order to make the workflow 
+		Getting gistID of a gist in order to make the workflow
 		easy and uninterrupted.
 		'''
 		r = requests.get(
@@ -82,7 +80,7 @@ class Mygist:
 		Doesn't require manual fetching of gistID of a gist
 		passing gistName will return the content of gist. In case,
 		names are ambigious, provide GistID or it will return the contents
-		of recent ambigious gistname 
+		of recent ambigious gistname
 		'''
 		self.gist_name = ''
 		if 'name' in args:
@@ -93,7 +91,7 @@ class Mygist:
 		else:
 			raise Exception('Either provide authenticated user\'s Unambigious Gistname or any unique Gistid')
 
-		
+
 		if self.gist_id:
 			r = requests.get(
 				'%s'%BASE_URL+'/gists/%s' %self.gist_id,
@@ -123,7 +121,7 @@ class Mygist:
 				headers=self.gist.header,
 				)
 			if (r.status_code == 200):
-				
+
 				for key,value in r.json()['files'].iteritems():
 						content = value['filename']
 				return content
@@ -177,7 +175,7 @@ class Mygist:
   				}
   			}
 
-	
+
 		if self.gist_id:
 			r = requests.patch(
 				'%s/gists/%s'%(BASE_URL,self.gist_id),
@@ -191,7 +189,7 @@ class Mygist:
 					'created_at': r.json()['created_at'],
 					'comments':r.json()['comments']
 				}
-				
+
 				return response
 
 		raise Exception('No such gist found')
@@ -201,7 +199,7 @@ class Mygist:
 		'''
 		Delete a gist by gistname/gistID
 		'''
-		
+
 		if 'name' in args:
 			self.gist_name = args['name']
 			self.gist_id = self.getMyID(self.gist_name)
@@ -209,7 +207,7 @@ class Mygist:
 			self.gist_id = args['id']
 		else:
 			raise Exception('Provide GistName to delete')
-		
+
 		url = 'gists'
 		if self.gist_id:
 			r = requests.delete(
@@ -228,7 +226,7 @@ class Mygist:
 	def starred(self, **args):
 		'''
 		List the authenticated user's starred gists
-		''' 
+		'''
 		ids =[]
 		r = requests.get(
 			'%s/gists/starred'%BASE_URL,
@@ -264,13 +262,13 @@ class Mygist:
 				headers=self.gist.header,
 				)
 			if (r.status_code == 200):
-				
+
 				content = {
 				'Github-User': r.json()['user']['login'],
 				'GistID': r.json()['id'],
-				'Gist-Link': '%s/%s/%s' %(Link_URL,self.gist.username,r.json()['id']),
-				'Clone-Link': '%s/%s.git' %(Link_URL,r.json()['id']),
-				'Embed-Script': '<script src="%s/%s/%s.js"</script>' %(Link_URL,self.gist.username,r.json()['id'])
+				'Gist-Link': '%s/%s/%s' %(GIST_URL,self.gist.username,r.json()['id']),
+				'Clone-Link': '%s/%s.git' %(GIST_URL,r.json()['id']),
+				'Embed-Script': '<script src="%s/%s/%s.js"</script>' %(GIST_URL,self.gist.username,r.json()['id'])
 				}
 				return content
 

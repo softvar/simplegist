@@ -1,19 +1,15 @@
-BASE_URL = 'https://api.github.com'
-GIST_URL = 'https://gist.github.com'
-
 import json
 import requests
-
-
+from config import BASE_URL, GIST_URL
 
 class Comments:
 	def __init__(self, gist):
 		self.gist = gist
-		
+
 
 	def getMyID(self,gist_name):
 		'''
-		Getting gistID of a gist in order to make the workflow 
+		Getting gistID of a gist in order to make the workflow
 		easy and uninterrupted.
 		'''
 		r = requests.get(
@@ -60,7 +56,7 @@ class Comments:
 			if (r.status_code == 200 ):
 				for g,no in zip(r_text, range(0,limit)):
 						allcomments.append(r.json()[no]['body'])
-				
+
 				return allcomments
 
 		raise Exception('Gistname not found')
@@ -86,7 +82,7 @@ class Comments:
 			raise Exception('Either provide authenticated user\'s Unambigious Gistname or any unique Gistid')
 
 		if self.gist_id:
-			
+
 			r = requests.post(
 				'%s'%BASE_URL+'/gists/%s/comments' % self.gist_id,
 				headers=self.gist.header,
@@ -100,13 +96,13 @@ class Comments:
 					'created_at': r.json()['created_at']
 				}
 				return response
-			
+
 
 		raise Exception('Comment not created')
 
 
 	def delete(self, **args):
-		
+
 		self.user = self.gist.username
 
 		self.gist_name = ''
@@ -145,7 +141,7 @@ class Comments:
 
 
 	def get(self, **args):
-		
+
 		self.user = self.gist.username
 
 		self.gist_name = ''
@@ -180,7 +176,7 @@ class Comments:
 					'comment' : 'not exists'
 				}
 				return response
-			
+
 
 		raise Exception('Comment not exits/deleted')
 
@@ -210,7 +206,7 @@ class Comments:
 			raise Exception('Either provide authenticated user\'s Unambigious Gistname or any unique Gistid')
 
 		if self.gist_id:
-			
+
 			r = requests.patch(
 				'%s/gists/%s/comments/%s'%(BASE_URL,self.gist_id, self.commentid),
 				headers=self.gist.header,
@@ -228,6 +224,6 @@ class Comments:
 				response = {
 					'comment' : 'not edited'
 				}
-			
+
 
 		raise Exception('Comment not edited')

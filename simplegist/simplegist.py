@@ -1,14 +1,11 @@
 import requests
 import json
 
-from config import USERNAME, API_TOKEN
+from config import USERNAME, API_TOKEN, BASE_URL, GIST_URL
 
 from mygist import Mygist
 from do import Do
 from comments import Comments
-
-BASE_URL = 'https://api.github.com'
-Link_URL = 'https://gist.github.com'
 
 class Simplegist:
 	"""
@@ -38,7 +35,7 @@ class Simplegist:
 			else:
 				self.api_token = API_TOKEN
 
-		
+
         # Set header information in every request.
 		self.header = { 'X-Github-Username': self.username,
 						'Content-Type': 'application/json',
@@ -90,15 +87,15 @@ class Simplegist:
   		}
 
 		r = requests.post(
-			'%s%s' % (BASE_URL, url), 
+			'%s%s' % (BASE_URL, url),
 			data=json.dumps(data),
 			headers=self.header
 		)
-		if (r.status_code == 201):	
+		if (r.status_code == 201):
 			response = {
-			'Gist-Link': '%s/%s/%s' %(Link_URL,self.username,r.json()['id']),
-			'Clone-Link': '%s/%s.git' %(Link_URL,r.json()['id']),
-			'Embed-Script': '<script src="%s/%s/%s.js"</script>' %(Link_URL,self.username,r.json()['id']),
+			'Gist-Link': '%s/%s/%s' %(GIST_URL,self.username,r.json()['id']),
+			'Clone-Link': '%s/%s.git' %(GIST_URL,r.json()['id']),
+			'Embed-Script': '<script src="%s/%s/%s.js"</script>' %(GIST_URL,self.username,r.json()['id']),
 			'id': r.json()['id'],
 			'created_at': r.json()['created_at'],
 
